@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Egemen · Projects</title>
+  <meta name="description" content="Apps I've designed and shipped, and code I write myself.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="intro wrap">
+    <!-- ===================== EDIT YOUR NAME AND BIO HERE ===================== -->
+    <h1>Egemen</h1>
+    <p class="bio">
+      I build apps for problems I run into myself. I decide what an app should do,
+      how it should work and what it should look like, direct AI to write the code,
+      and test everything on my own phone and PC until it holds up in daily use.
+      Alongside that, I'm learning to write code myself in Python.
+    </p>
+    <!-- ======================================================================= -->
+    <nav class="links">
+      <a href="https://github.com/begemen653-del">GitHub</a>
+      <!-- To show your email, remove the two comment marks around the next line and put your address in. -->
+      <!-- <a href="mailto:you@example.com">Email</a> -->
+      <a href="#shipped">Apps</a>
+      <a href="#self">Python</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="shipped" class="wrap">
+      <h2>Apps I've designed and shipped</h2>
+      <p class="lead">
+        These are real apps I use every day. Claude, an AI model, wrote the code under my direction.
+        My part is everything around the code: what gets built, how it fits together,
+        and whether it actually works. Each project says what that looked like.
+      </p>
+
+      <!-- ---------------- Tether ---------------- -->
+      <article class="project">
+        <header>
+          <h3>Tether</h3>
+          <p class="tagline">My Android phone and my Windows PC, linked without a cloud.</p>
+          <p class="meta">Windows + Android · Flutter, Dart, Kotlin · version 0.12 · in daily use</p>
+        </header>
+
+        <figure class="shot-wide">
+          <img src="img/tether-pc-history.webp" width="1207" height="828" loading="lazy"
+               alt="Tether on Windows: the History page with clipboard settings and three texts copied on the phone">
+        </figure>
+        <div class="shots">
+          <img src="img/tether-phone-home.webp" width="540" height="1200" loading="lazy" alt="Tether on Android: connected to the PC, with quick actions">
+          <img src="img/tether-phone-remote.webp" width="540" height="1200" loading="lazy" alt="Tether's remote control: media, volume, lock, sleep and shut down">        </div>
+
+        <p>
+          Copy something on the phone and paste it on the PC. Send photos and files both ways.
+          See phone notifications on the PC and dismiss them there. Use the phone as a remote
+          for music, volume, lock, sleep and shut down. Tether sits quietly in the Windows tray
+          and does all of this directly between the two devices.
+        </p>
+
+        <dl class="role">
+          <div>
+            <dt>Product &amp; features</dt>
+            <dd>I wanted something like Phone Link that works with my phone and keeps my data at home.
+              I kept the lists short on purpose: the PC only lists what came from the phone, and the phone
+              only lists what came from the PC. Copies from password managers are never sent.</dd>
+          </div>
+          <div>
+            <dt>Architecture decisions</dt>
+            <dd>No accounts and no server. The phone and PC pair once by scanning a QR code, then talk directly,
+              encrypted end to end. It also works away from home, straight to the PC. The phone can only open
+              apps I've put on an allowed list, nothing else.</dd>
+          </div>
+          <div>
+            <dt>AI-assisted implementation</dt>
+            <dd>Built step by step with Claude: one milestone at a time, and each one checked by me before the next started.</dd>
+          </div>
+          <div>
+            <dt>Testing &amp; debugging</dt>
+            <dd>I tested every feature on my own phone (Xiaomi HyperOS) and laptop. One bug I found: copying an
+              image on the phone made unreadable text arrive on the PC. We traced it to how HyperOS hands images
+              to apps and fixed it. A full test pass later turned up seven more bugs, which we fixed one at
+              a time, with me checking each fix. The project has 177 automated tests.</dd>
+          </div>
+        </dl>
+        <p class="note">Code available on request.</p>
+      </article>
+
+      <!-- ---------------- LocalTune ---------------- -->
+      <article class="project">
+        <header>
+          <h3>LocalTune</h3>
+          <p class="tagline">A private, offline music and video player for Android. No accounts, no ads.</p>
+          <p class="meta">Android · Kotlin, Jetpack Compose, Media3</p>
+        </header>
+
+        <div class="shots">
+          <img src="img/localtune-home.webp" width="540" height="1200" loading="lazy" alt="LocalTune home: continue listening and recently added songs">
+          <img src="img/localtune-now-playing.webp" width="540" height="1200" loading="lazy" alt="LocalTune now playing screen with repeat, speed and sleep timer">
+          <img src="img/localtune-library.webp" width="540" height="1200" loading="lazy" alt="LocalTune library: playlists, favorites, albums, artists and folders">
+        </div>
+
+        <p>
+          LocalTune plays the music and videos that are already on the phone. It has albums, artists,
+          folders, playlists and favorites, plays in the background with lock-screen controls, and has
+          repeat, playback speed and a sleep timer. It can also rebuild my YouTube playlists from a
+          Google Takeout export by matching them against the songs on my phone.
+        </p>
+
+        <dl class="role">
+          <div>
+            <dt>Product &amp; features</dt>
+            <dd>I wanted a player with nothing in the way: no sign-in, no ads, no suggestions. An earlier version
+              had a link downloader. I took its screen out to keep the app focused on playing what you already have.</dd>
+          </div>
+          <div>
+            <dt>Architecture decisions</dt>
+            <dd>Files are played where they are. LocalTune never copies, moves or deletes anything. Playlists and
+              history are saved on the phone only.</dd>
+          </div>
+          <div>
+            <dt>AI-assisted implementation</dt>
+            <dd>Written by Claude from my feature list and design notes, one milestone at a time.</dd>
+          </div>
+          <div>
+            <dt>Testing &amp; debugging</dt>
+            <dd>Used on my own phone with my own library. The reorderable song list also works with a screen
+              reader, which gets "move up" and "move down" actions instead of dragging.</dd>
+          </div>
+        </dl>
+        <p class="note">Code available on request.</p>
+      </article>
+
+      <!-- ---------------- Orbit ---------------- -->
+      <article class="project">
+        <header>
+          <h3>Orbit</h3>
+          <p class="tagline">Plan the day, focus, and see real progress. Everything stays on the phone.</p>
+          <p class="meta">Android · Kotlin, Jetpack Compose, Room</p>
+        </header>
+
+        <div class="shots">
+          <img src="img/orbit-today.webp" width="540" height="1200" loading="lazy" alt="Orbit Today screen: top 3 priorities, overdue and due today">
+          <img src="img/orbit-focus.webp" width="540" height="1200" loading="lazy" alt="Orbit focus timer running on a task">
+          <img src="img/orbit-insights.webp" width="540" height="1200" loading="lazy" alt="Orbit insights: level, streak, focus minutes and tasks per day">
+        </div>
+
+        <p>
+          Each day starts with three priorities. Tasks belong to projects with deadlines and milestones,
+          a focus timer tracks the actual work, and Insights shows how the week really went. Everything
+          can be exported to a readable backup file.
+        </p>
+
+        <dl class="role">
+          <div>
+            <dt>Product &amp; features</dt>
+            <dd>Levels and streaks are optional and earned from real work, with a daily cap so they can't be farmed.
+              Streaks allow rest days, so one day off doesn't wipe out a month.</dd>
+          </div>
+          <div>
+            <dt>Architecture decisions</dt>
+            <dd>Local first, no account. The timer is worked out from saved start and pause times, so it stays
+              right even if the phone kills the app or restarts mid-session.</dd>
+          </div>
+          <div>
+            <dt>AI-assisted implementation</dt>
+            <dd>Built with Claude in four phases: planning, focus timer, insights, then backup and polish.</dd>
+          </div>
+          <div>
+            <dt>Testing &amp; debugging</dt>
+            <dd>Backups are checked completely before anything is restored, so a damaged file can't half-overwrite
+              your data. The timer is tested with a fake clock.</dd>
+          </div>
+        </dl>
+        <p class="note">Code available on request.</p>
+      </article>
+    </section>
+
+    <section id="self" class="wrap">
+      <h2>Code I write myself</h2>
+      <p class="lead">
+        I'm learning Python by hand, in VS Code: first with Harvard's CS50P course, then with debugging
+        challenges where I find and fix the bugs myself, without being given the answer. These are small
+        programs I wrote, plus my fixes to a program I was given to debug. The output under each one
+        is real, from running the program.
+      </p>
+
+      <div class="code-grid">
+        <article class="code-card">
+          <h3>Debugging challenge: grades</h3>
+          <p>I was given a program that never crashed but gave wrong answers. I stepped through it with the
+            VS Code debugger to find the bugs instead of guessing.</p>
+<pre class="code"><code>def average(scores):
+    total = 0
+    for s in scores:
+        # Bug 1: replaced total each time, += adds to it. fixed from :  total = s
+        total += s
+    return total / len(scores)</code></pre>
+<pre class="term"><samp>Score 1: 72
+Score 2: eighty
+Numbers only, please
+Score 2: 88
+Score 3: 95
+Average: 85.0
+Grade: Excellent</samp></pre>
+        </article>
+
+        <article class="code-card">
+          <h3>Safe divide</h3>
+          <p>Keeps asking until it gets a real number, handles dividing by zero, and quits on "q".</p>
+<pre class="code"><code>def get_number(prompt):
+        while True:
+            text = input(prompt).lower()
+            if text == "q":
+                 print("Quitting...")
+                 sys.exit()
+            try:
+                x = float(text)
+                return x
+            except ValueError:
+                print("That is not a number. Try again with Numbers")</code></pre>
+<pre class="term"><samp>(q for quiting) Enter first number: 10
+(q for quiting) Enter second number: 0
+You cant divide it with Zero try again
+(q for quiting) Enter first number: ten
+That is not a number. Try again with Numbers
+(q for quiting) Enter first number: 10
+(q for quiting) Enter second number: 4
+2.5
+(q for quiting) Enter first number: q
+Quitting...</samp></pre>
+        </article>
+
+        <article class="code-card">
+          <h3>Number guessing game</h3>
+          <p>Picks a number from 1 to 20, gives hints, ignores guesses outside the range and counts attempts.</p>
+<pre class="code"><code>    if user &lt; 1 or user &gt; 20:
+        print("Please enter a number between 1 and 20!")
+        continue
+
+    tries += 1
+
+    if user &lt; number:
+        print("Too low!")
+
+    elif user &gt; number:
+        print("Too high!")</code></pre>
+<pre class="term"><samp>Pick a number from 1 to 20: 10
+Too low!
+Pick a number from 1 to 20: 15
+Too high!
+Pick a number from 1 to 20: 25
+Please enter a number between 1 and 20!
+Pick a number from 1 to 20: 12
+Too high!
+Pick a number from 1 to 20: 11
+Great job!
+You took 4 attempts.
+Play again? (yes/no): no
+Thanks for playing!</samp></pre>
+        </article>
+
+        <article class="code-card">
+          <h3>BMI calculator</h3>
+          <p>One of my first programs: converts centimetres to metres, rounds the result and sorts it into a category.</p>
+<pre class="code"><code>height_m = height / 100
+BMI = round (weight / (height_m * height_m), 1)
+print(f"Your BMI is {BMI}")
+time.sleep(2)
+if BMI &lt; 18.5:
+    print("You are in category 'Underweight'")
+elif BMI &lt; 25:
+    print("You are in category 'Normal Weight'")</code></pre>
+<pre class="term"><samp>Welcome to BMI Calculator App
+Please enter your weight and height in centimeters
+Enter your weight 68
+Enter your height in centimeters 176
+Your BMI is 22.0
+You are in category 'Normal Weight'
+Thank you for using our BMI Calculator app, see you later!</samp></pre>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <p>Screenshots come from the real apps, filled with sample data instead of my own.</p>
+  </footer>
+</body>
+</html>
