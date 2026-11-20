@@ -15,10 +15,8 @@
     <!-- ===================== EDIT YOUR NAME AND BIO HERE ===================== -->
     <h1>Egemen</h1>
     <p class="bio">
-      I build apps for problems I run into myself. I decide what an app should do,
-      how it should work and what it should look like, direct AI to write the code,
-      and test everything on my own phone and PC until it holds up in daily use.
-      Alongside that, I'm learning to write code myself in Python.
+      I make apps for problems I have myself. I decide what the app does and how it looks,
+      AI writes the code, and I test it on my own phone and PC. I'm also learning Python.
     </p>
     <!-- ======================================================================= -->
     <nav class="links">
@@ -34,9 +32,8 @@
     <section id="shipped" class="wrap">
       <h2>Apps I've designed and shipped</h2>
       <p class="lead">
-        These are real apps I use every day. Claude, an AI model, wrote the code under my direction.
-        My part is everything around the code: what gets built, how it fits together,
-        and whether it actually works. Each project says what that looked like.
+        Real apps I use every day. Claude (an AI) wrote the code. I planned them, made the
+        decisions and tested them.
       </p>
 
       <!-- ---------------- Tether ---------------- -->
@@ -44,7 +41,7 @@
         <header>
           <h3>Tether</h3>
           <p class="tagline">My Android phone and my Windows PC, linked without a cloud.</p>
-          <p class="meta">Windows + Android · Flutter, Dart, Kotlin · version 1.0 · in daily use</p>
+          <p class="meta">Windows + Android · Flutter, Dart, Kotlin · version 1.0.1 · in daily use</p>
         </header>
 
         <figure class="shot-wide">
@@ -56,35 +53,28 @@
           <img src="img/tether-phone-remote.webp" width="540" height="1200" loading="lazy" alt="Tether's remote control: media, volume, lock, sleep and shut down">        </div>
 
         <p>
-          Copy something on the phone and paste it on the PC. Send photos and files both ways.
-          See phone notifications on the PC and dismiss them there. Use the phone as a remote
-          for music, volume, lock, sleep and shut down. Tether sits quietly in the Windows tray
-          and does all of this directly between the two devices.
+          Copy on the phone, paste on the PC, and the other way round. Send files, see phone
+          notifications on the PC, and use the phone as a remote for music, volume and lock.
         </p>
 
         <dl class="role">
           <div>
-            <dt>Product &amp; features</dt>
-            <dd>I wanted something like Phone Link that works with my phone and keeps my data at home.
-              I kept the lists short on purpose: the PC only lists what came from the phone, and the phone
-              only lists what came from the PC. Copies from password managers are never sent.</dd>
+            <dt>What I wanted</dt>
+            <dd>Like Phone Link, but my data stays at home. Copies from password managers are never sent.</dd>
           </div>
           <div>
-            <dt>Architecture decisions</dt>
-            <dd>No accounts and no server. The phone and PC pair once by scanning a QR code, then talk directly,
-              encrypted end to end. It also works away from home, straight to the PC. The phone can only open
-              apps I've put on an allowed list, nothing else.</dd>
+            <dt>How it works</dt>
+            <dd>No account and no server. You pair once with a QR code, then the two devices talk directly, encrypted.</dd>
           </div>
           <div>
-            <dt>AI-assisted implementation</dt>
-            <dd>Built step by step with Claude: one milestone at a time, and each one checked by me before the next started.</dd>
+            <dt>Who wrote the code</dt>
+            <dd>Built with Claude one step at a time. I checked each step before the next one.</dd>
           </div>
           <div>
-            <dt>Testing &amp; debugging</dt>
-            <dd>I tested every feature on my own phone (Xiaomi HyperOS) and laptop. One bug I found: copying an
-              image on the phone made unreadable text arrive on the PC. We traced it to how HyperOS hands images
-              to apps and fixed it. A full test pass later turned up seven more bugs, which we fixed one at
-              a time, with me checking each fix. The project has 177 automated tests.</dd>
+            <dt>Testing</dt>
+            <dd>Tested on my own Xiaomi phone and laptop. I found that after a phone restart the app opened to a
+              blank screen and stopped syncing. We found the cause, and version 1.0.1 fixes it. I checked the fix
+              with a real restart. It has 177 automated tests.</dd>
           </div>
         </dl>
         <p class="note">Code available on request.</p>
@@ -105,31 +95,26 @@
         </div>
 
         <p>
-          LocalTune plays the music and videos that are already on the phone. It has albums, artists,
-          folders, playlists and favorites, plays in the background with lock-screen controls, and has
-          repeat, playback speed and a sleep timer. It can also rebuild my YouTube playlists from a
-          Google Takeout export by matching them against the songs on my phone.
+          Plays the music and videos already on the phone, with playlists, favorites, a sleep timer and
+          lock-screen controls. It can also rebuild my YouTube playlists from my own songs.
         </p>
 
         <dl class="role">
           <div>
-            <dt>Product &amp; features</dt>
-            <dd>I wanted a player with nothing in the way: no sign-in, no ads, no suggestions. An earlier version
-              had a link downloader. I took its screen out to keep the app focused on playing what you already have.</dd>
+            <dt>What I wanted</dt>
+            <dd>No sign-in, no ads, no suggestions. I removed a downloader screen to keep it simple.</dd>
           </div>
           <div>
-            <dt>Architecture decisions</dt>
-            <dd>Files are played where they are. LocalTune never copies, moves or deletes anything. Playlists and
-              history are saved on the phone only.</dd>
+            <dt>How it works</dt>
+            <dd>It never moves or deletes your files. Everything is saved on the phone only.</dd>
           </div>
           <div>
-            <dt>AI-assisted implementation</dt>
-            <dd>Written by Claude from my feature list and design notes, one milestone at a time.</dd>
+            <dt>Who wrote the code</dt>
+            <dd>Written by Claude from my feature list and design notes.</dd>
           </div>
           <div>
-            <dt>Testing &amp; debugging</dt>
-            <dd>Used on my own phone with my own library. The reorderable song list also works with a screen
-              reader, which gets "move up" and "move down" actions instead of dragging.</dd>
+            <dt>Testing</dt>
+            <dd>I use it every day with my own music.</dd>
           </div>
         </dl>
         <p class="note">Code available on request.</p>
@@ -150,30 +135,25 @@
         </div>
 
         <p>
-          Each day starts with three priorities. Tasks belong to projects with deadlines and milestones,
-          a focus timer tracks the actual work, and Insights shows how the week really went. Everything
-          can be exported to a readable backup file.
+          Pick three priorities a day, track work with a focus timer, and see how the week went.
         </p>
 
         <dl class="role">
           <div>
-            <dt>Product &amp; features</dt>
-            <dd>Levels and streaks are optional and earned from real work, with a daily cap so they can't be farmed.
-              Streaks allow rest days, so one day off doesn't wipe out a month.</dd>
+            <dt>What I wanted</dt>
+            <dd>Streaks allow rest days, so one day off doesn't wipe out a month.</dd>
           </div>
           <div>
-            <dt>Architecture decisions</dt>
-            <dd>Local first, no account. The timer is worked out from saved start and pause times, so it stays
-              right even if the phone kills the app or restarts mid-session.</dd>
+            <dt>How it works</dt>
+            <dd>No account. The timer stays right even if the phone closes the app.</dd>
           </div>
           <div>
-            <dt>AI-assisted implementation</dt>
-            <dd>Built with Claude in four phases: planning, focus timer, insights, then backup and polish.</dd>
+            <dt>Who wrote the code</dt>
+            <dd>Built with Claude in four steps.</dd>
           </div>
           <div>
-            <dt>Testing &amp; debugging</dt>
-            <dd>Backups are checked completely before anything is restored, so a damaged file can't half-overwrite
-              your data. The timer is tested with a fake clock.</dd>
+            <dt>Testing</dt>
+            <dd>A broken backup file can't damage your data. It's checked before anything is restored.</dd>
           </div>
         </dl>
         <p class="note">Code available on request.</p>
@@ -183,18 +163,15 @@
     <section id="self" class="wrap">
       <h2>Code I write myself</h2>
       <p class="lead">
-        I'm learning Python by hand, in VS Code: first with Harvard's CS50P course, then with debugging
-        challenges where I find and fix the bugs myself, without being given the answer. These are small
-        programs I wrote, plus my fixes to a program I was given to debug. The output under each one
-        is real, from running the program. All of it is on GitHub:
+        I'm learning Python with Harvard's CS50P course and by fixing buggy programs myself.
+        The output under each one is real. All on GitHub:
         <a href="https://github.com/begemen653-del/python-practice">python-practice</a>.
       </p>
 
       <div class="code-grid">
         <article class="code-card">
           <h3>Debugging challenge: grades</h3>
-          <p>I was given a program that never crashed but gave wrong answers. I stepped through it with the
-            VS Code debugger to find the bugs instead of guessing.</p>
+          <p>I was given a program that gave wrong answers. I found the bugs with the debugger.</p>
 <pre class="code"><code>def average(scores):
     total = 0
     for s in scores:
@@ -212,7 +189,7 @@ Grade: Excellent</samp></pre>
 
         <article class="code-card">
           <h3>Safe divide</h3>
-          <p>Keeps asking until it gets a real number, handles dividing by zero, and quits on "q".</p>
+          <p>Asks until it gets a number, and handles dividing by zero.</p>
 <pre class="code"><code>def get_number(prompt):
         while True:
             text = input(prompt).lower()
@@ -238,7 +215,7 @@ Quitting...</samp></pre>
 
         <article class="code-card">
           <h3>Number guessing game</h3>
-          <p>Picks a number from 1 to 20, gives hints, ignores guesses outside the range and counts attempts.</p>
+          <p>Guess a number from 1 to 20, with hints.</p>
 <pre class="code"><code>    if user &lt; 1 or user &gt; 20:
         print("Please enter a number between 1 and 20!")
         continue
@@ -267,7 +244,7 @@ Thanks for playing!</samp></pre>
 
         <article class="code-card">
           <h3>BMI calculator</h3>
-          <p>One of my first programs: converts centimetres to metres, rounds the result and sorts it into a category.</p>
+          <p>One of my first programs.</p>
 <pre class="code"><code>height_m = height / 100
 BMI = round (weight / (height_m * height_m), 1)
 print(f"Your BMI is {BMI}")
@@ -289,7 +266,7 @@ Thank you for using our BMI Calculator app, see you later!</samp></pre>
   </main>
 
   <footer class="wrap">
-    <p>Screenshots come from the real apps, filled with sample data instead of my own.</p>
+    <p>Screenshots are from the real apps, with sample data.</p>
   </footer>
 </body>
 </html>
